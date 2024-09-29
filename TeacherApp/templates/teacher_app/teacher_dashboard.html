@@ -1,0 +1,10 @@
+<ul class="list-group">
+    {% for course_instructor in assigned_courses %}
+        <li class="list-group-item">
+            {{ course_instructor.courseinfo.course_title }} 
+            (Semester: {{ course_instructor.courseinfo.semester.semester_number }})
+
+            <a href="{% url 'TeacherApp:enter_marks' course_instructor.courseinfo.course_code %}" class="btn btn-primary btn-sm float-right">Enter Marks</a>
+        </li>
+    {% endfor %}
+</ul>

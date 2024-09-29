@@ -1,0 +1,10 @@
+<h2>Assigned Courses</h2>
+<ul>
+    {% for course in courses %}
+        <li>
+            {{ course.courseinfo.course_title }} 
+            <a href="{% url 'enter_results' course.id %}">Enter Results</a>
+        </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'logout' %}">Logout</a>  <!-- Add a logout link if you have one -->

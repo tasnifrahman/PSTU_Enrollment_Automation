@@ -1,0 +1,4 @@
+<h1>{{ teacher.user.username }}'s Profile</h1>
+<p>Faculty: {{ teacher.faculty.faculty_name }}</p>
+<p>Department: {{ teacher.department.department_name }}</p>
+<a href="{% url 'assigned_courses' %}">View Assigned Courses</a>
