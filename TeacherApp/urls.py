@@ -6,4 +6,5 @@ urlpatterns = [
     path('logout/', views.teacher_logout, name='teacher_logout'),
     path('dashboard/', views.teacher_dashboard, name='teacher_dashboard'),
     path('enter_marks/<str:course_code>/', views.enter_marks, name='enter_marks'), 
+    path('logout/', views.teacher_logout, name='teacher_logout'),
 ]

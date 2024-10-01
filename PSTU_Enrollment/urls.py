@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',  include('FacultyApp.urls')),
     path('teacher/', include(('TeacherApp.urls', 'TeacherApp'), namespace='TeacherApp')),
+    path('result/', include('ResultApp.urls')),
 ]
 
 if settings.DEBUG:

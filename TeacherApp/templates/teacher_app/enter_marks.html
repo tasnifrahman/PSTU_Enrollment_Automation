@@ -1,3 +1,5 @@
+{% load custom_filters %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,6 +22,7 @@
                         <th>Assignment (Max: 5)</th>
                         <th>Mid Exam (Max: 15)</th>
                         <th>Final Exam (Max: 70)</th>
+                        <th>Total Marks</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -27,17 +30,18 @@
                         <tr>
                             <td>{{ student.student_id }}</td>
                             <td>
-                                <input type="number" name="attendance_{{ student.id }}" required max="10" min="0" step="1">
+                                <input type="number" name="attendance_{{ student.id }}" value="{{ student_marks|get_item:student.id|get_item:'attendance' }}" required max="10" min="0" step="0.01">
                             </td>
                             <td>
-                                <input type="number" name="assignment_{{ student.id }}" required max="5" min="0" step="1">
+                                <input type="number" name="assignment_{{ student.id }}" value="{{ student_marks|get_item:student.id|get_item:'assignment' }}" required max="5" min="0" step="0.01">
                             </td>
                             <td>
-                                <input type="number" name="mid_exam_{{ student.id }}" required max="15" min="0" step="1">
+                                <input type="number" name="mid_exam_{{ student.id }}" value="{{ student_marks|get_item:student.id|get_item:'mid_exam' }}" required max="15" min="0" step="0.01">
                             </td>
                             <td>
-                                <input type="number" name="final_exam_{{ student.id }}" required max="70" min="0" step="1">
+                                <input type="number" name="final_exam_{{ student.id }}" value="{{ student_marks|get_item:student.id|get_item:'final_exam' }}" required max="70" min="0" step="0.01">
                             </td>
+                            <td>{{ student_marks|get_item:student.id|get_item:'total' }}</td> <!-- Display the total marks -->
                         </tr>
                     {% endfor %}
                 </tbody>

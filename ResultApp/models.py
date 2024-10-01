@@ -16,5 +16,5 @@ class Course_Mark(models.Model):
 class Semester_Result(models.Model):
     student_id = models.ForeignKey(Student, on_delete=models.CASCADE, null=True)
     semester = models.ForeignKey(Semester, on_delete=models.CASCADE, null=True)
-    gpa = models.DecimalField(max_digits = 4, decimal_places = 3, default=0.0)
-    cgpa = models.DecimalField(max_digits = 4, decimal_places = 3, default=0.0)
+    gpa = models.DecimalField(max_digits=4, decimal_places=3, default=0.0)
+    cgpa = models.DecimalField(max_digits=4, decimal_places=3, default=0.0)
