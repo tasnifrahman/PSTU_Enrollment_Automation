@@ -4,32 +4,20 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-<<<<<<< HEAD
-=======
 from django.views.decorators.cache import cache_control
->>>>>>> eb1577276d374ae26f979cb62368ddfc44600e2a
 from django.core.exceptions import ValidationError
 from django.views.decorators.cache import never_cache
 from django.contrib import messages
 from .models import FacultyController, Semester, Course, Faculty, Department
-<<<<<<< HEAD
-from TeacherApp.models import Teacher
-from StudentApp.models import Student
-=======
 from TeacherApp.models import Teacher, Course_Instructor
 from StudentApp.models import Student
 from ResultApp.views import get_student_mark
->>>>>>> eb1577276d374ae26f979cb62368ddfc44600e2a
 
 # Create your views here.
 def index(request):    
     return render(request, 'index.html')
 
-<<<<<<< HEAD
-
-=======
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
->>>>>>> eb1577276d374ae26f979cb62368ddfc44600e2a
 def faculty_admin_login(request):
     if request.user.is_authenticated:
         if FacultyController.objects.filter(user=request.user).exists():
@@ -63,11 +51,8 @@ def faculty_admin_login(request):
 
     return response
 
-<<<<<<< HEAD
 
-=======
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
->>>>>>> eb1577276d374ae26f979cb62368ddfc44600e2a
 def faculty_admin_logout(request):
     logout(request)
     messages.success(request, 'You have been logged out successfully.')  # Optional success message
@@ -82,10 +67,7 @@ def faculty_admin_logout(request):
 
 
 @login_required(login_url='FacultyApp:faculty_admin_login')  # Redirect to login if not authenticated
-<<<<<<< HEAD
-=======
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
->>>>>>> eb1577276d374ae26f979cb62368ddfc44600e2a
 def dashboard(request):
     # Create response object with the rendered template
     response = render(request, 'dashboard.html', {'user': request.user})
@@ -99,10 +81,7 @@ def dashboard(request):
 
 
 @login_required(login_url='FacultyApp:faculty_admin_login')
-<<<<<<< HEAD
-=======
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
->>>>>>> eb1577276d374ae26f979cb62368ddfc44600e2a
 def addCourse(request):
     faculty_controller = FacultyController.objects.get(user=request.user)
     faculty = faculty_controller.faculty
@@ -145,10 +124,7 @@ def addCourse(request):
     
 
 @login_required(login_url='FacultyApp:faculty_admin_login')
-<<<<<<< HEAD
-=======
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
->>>>>>> eb1577276d374ae26f979cb62368ddfc44600e2a
 def deleteCourse(request):
     faculty_controller = FacultyController.objects.get(user=request.user)
     faculty = faculty_controller.faculty
@@ -176,10 +152,7 @@ def deleteCourse(request):
     
 
 @login_required(login_url='FacultyApp:faculty_admin_login')
-<<<<<<< HEAD
-=======
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
->>>>>>> eb1577276d374ae26f979cb62368ddfc44600e2a
 def addTeacher(request):
     faculty_controller = FacultyController.objects.get(user=request.user)
     faculty = faculty_controller.faculty
@@ -257,10 +230,7 @@ def addTeacher(request):
 
 
 @login_required(login_url='FacultyApp:faculty_admin_login')
-<<<<<<< HEAD
-=======
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
->>>>>>> eb1577276d374ae26f979cb62368ddfc44600e2a
 def deleteTeacher(request):
     faculty_controller = FacultyController.objects.get(user=request.user)
     faculty = faculty_controller.faculty
@@ -301,10 +271,7 @@ def deleteTeacher(request):
     
     
 @login_required(login_url='FacultyApp:faculty_admin_login')
-<<<<<<< HEAD
-=======
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
->>>>>>> eb1577276d374ae26f979cb62368ddfc44600e2a
 def addDepartment(request):
     faculty_controller = FacultyController.objects.get(user=request.user)
     faculty = faculty_controller.faculty
@@ -339,10 +306,7 @@ def addDepartment(request):
     
     
 @login_required(login_url='FacultyApp:faculty_admin_login')
-<<<<<<< HEAD
-=======
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
->>>>>>> eb1577276d374ae26f979cb62368ddfc44600e2a
 def deleteDepartment(request):
     faculty_controller = FacultyController.objects.get(user=request.user)
     faculty = faculty_controller.faculty
@@ -392,10 +356,7 @@ def deleteDepartment(request):
 
 
 @login_required(login_url='FacultyApp:faculty_admin_login')
-<<<<<<< HEAD
-=======
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
->>>>>>> eb1577276d374ae26f979cb62368ddfc44600e2a
 def addStudent(request):
     faculty_controller = FacultyController.objects.get(user=request.user)
     faculty = faculty_controller.faculty
@@ -468,10 +429,7 @@ def addStudent(request):
 
 
 @login_required(login_url='FacultyApp:faculty_admin_login')
-<<<<<<< HEAD
-=======
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
->>>>>>> eb1577276d374ae26f979cb62368ddfc44600e2a
 def deleteStudent(request):
     faculty_controller = FacultyController.objects.get(user=request.user)
     faculty = faculty_controller.faculty
@@ -508,9 +466,7 @@ def deleteStudent(request):
     return render(request, 'deleteStudent.html', {
         'faculty_name': faculty.faculty_name,
         'all_students': all_students,
-<<<<<<< HEAD
-    })
-=======
+
     })
     
     
@@ -592,4 +548,3 @@ def generate_results(request, semester_number):
     context = get_student_mark(faculty, semester)
 
     return render(request, 'results_table.html', context)
->>>>>>> eb1577276d374ae26f979cb62368ddfc44600e2a

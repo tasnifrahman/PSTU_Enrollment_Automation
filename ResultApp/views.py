@@ -1,12 +1,8 @@
-<<<<<<< HEAD
-from django.shortcuts import render, redirect
-=======
 from django.shortcuts import render
 from decimal import Decimal
 from StudentApp.models import Student
 from ResultApp.models import Course_Mark
 from FacultyApp.models import Course
-
 
 # Helper function to convert marks to grade point based on the given criteria
 def calculate_grade_point(marks):
@@ -85,4 +81,3 @@ def get_student_mark(faculty, semester):
     }
     
     return context
->>>>>>> eb1577276d374ae26f979cb62368ddfc44600e2a

@@ -20,17 +20,10 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-<<<<<<< HEAD
-    path('admin/', admin.site.urls),
-    path('',  include('FacultyApp.urls')),
-    path('teacher/', include(('TeacherApp.urls', 'TeacherApp'), namespace='TeacherApp')),
-    path('result/', include('ResultApp.urls')),
-=======
     path('admin/clearcache/', include('clearcache.urls')),
     path('admin/', admin.site.urls),
     path('',  include('FacultyApp.urls')),
     path('teacher/',  include('TeacherApp.urls'))
->>>>>>> eb1577276d374ae26f979cb62368ddfc44600e2a
 ]
 
 if settings.DEBUG:

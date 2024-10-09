@@ -15,10 +15,6 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-<<<<<<< HEAD
-# LOGIN_URL = 'TeacherApp:teacher_login' 
-=======
->>>>>>> eb1577276d374ae26f979cb62368ddfc44600e2a
 
 
 # Quick-start development settings - unsuitable for production
@@ -36,10 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-<<<<<<< HEAD
-=======
     'clearcache',
->>>>>>> eb1577276d374ae26f979cb62368ddfc44600e2a
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -49,11 +42,7 @@ INSTALLED_APPS = [
     'FacultyApp',
     'TeacherApp',
     'StudentApp',
-<<<<<<< HEAD
-    'ResultApp',
-=======
     'ResultApp'
->>>>>>> eb1577276d374ae26f979cb62368ddfc44600e2a
 ]
 
 MIDDLEWARE = [
@@ -101,12 +90,8 @@ DATABASES = {
         # =====================================
         'ENGINE': 'django.db.backends.mysql',    # MySQL backend for Django
         'NAME': 'pstu_enrollment',               # Database name
-        'USER': 'root',                          # Default MySQL username in XAMPP
-<<<<<<< HEAD
+        'USER': 'root',
         'PASSWORD': '123456tasnif',                          # Leave it empty for root, or add your password if you set one
-=======
-        'PASSWORD': '',                          # Leave it empty for root, or add your password if you set one
->>>>>>> eb1577276d374ae26f979cb62368ddfc44600e2a
         'HOST': 'localhost',                     # Host (localhost for XAMPP)
         'PORT': '3306',                          # Default MySQL port in XAMPP
         
